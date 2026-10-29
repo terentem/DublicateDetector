@@ -32,27 +32,27 @@ public class AppTest
     @Test
     //Має успішно обробляти колізію
     void shouldReturnFalseForCollisions() {
-        int[] numbersWithCollision = {200, 5000, 3, 1224};
-        assertFalse(detector.detectByBitSet(numbersWithCollision));
+        int[] numbers = {200, 5000, 3, 1224};
+        assertFalse(detector.detectByBitSet(numbers));
     }
 
     @Test
     //Не має сприйняти перший 0 в масиві чисел за дублікат
     void shouldReturnFalseForFirstZero() {
-        int[] numbersWithCollision = {2001,0, 5000, 10, 1224};
-        assertFalse(detector.detectByBitSet(numbersWithCollision));
+        int[] numbers = {2001,0, 5000, 10, 1224};
+        assertFalse(detector.detectByBitSet(numbers));
     }
 
     @Test
     //Має знаходити дублікат, при наявності колізії
-    void shouldDetectDuplicateAfterCollision() {
+    void shoulReturnTrueAfterDitectCollision() {
         int[] numbers = {200, 5000, 3, 1224, 3};
         assertTrue(detector.detectByBitSet(numbers));
     }
 
     @Test
     //Має має розрізняти протилежні числі, -1 та 1
-    void shouldDetectFalseForOpositeNumbers() {
+    void shouldReturnFalseForOpositeNumbers() {
         int[] numbers = {200, -1, 3, 1224, 1};
         assertFalse(detector.detectByBitSet(numbers));
     }
